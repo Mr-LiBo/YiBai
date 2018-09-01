@@ -1,4 +1,4 @@
-package libo.com.yibai.services;
+package com.libo.yibai.services;
 
 import android.app.Service;
 import android.content.Intent;

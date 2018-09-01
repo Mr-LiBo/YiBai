@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="libo.com.yibai">
+    package="com.libo.yibai">
 
     <application
         android:allowBackup="true"
@@ -9,19 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.libo.yibai.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestActivity" />
+        <activity android:name="com.libo.yibai.services.TestActivity" />
 
         <service
-            android:name=".services.MyService"
+            android:name="com.libo.yibai.services.MyService"
             android:enabled="true"
             android:exported="true" />
+
+        <!-- 注册广播接收器-->
+        <receiver android:name="com.libo.yibai.Broadcast.MyReceiver">
+            <intent-filter>
+                <action android:name="com.libo.yibai.Broadcast.MyReceiver"></action>
+            </intent-filter>
+
+        </receiver>
+
 
     </application>
 

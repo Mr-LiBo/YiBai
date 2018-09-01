@@ -1,4 +1,4 @@
-package libo.com.yibai;
+package com.libo.yibai.services;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import libo.com.yibai.services.MyService;
+import com.libo.yibai.R;
 
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
