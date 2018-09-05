@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.libo.yibai.ContentProviderunder.MyProviderunderActivity;
 import com.libo.yibai.services.TestActivity;
 
 import com.libo.yibai.R;
@@ -14,7 +15,7 @@ import com.libo.yibai.R;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
-    Button btn_TestActivity, btn_broadcast_receiver;
+    Button btn_TestActivity, btn_broadcast_receiver,btn_providerund;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         btn_broadcast_receiver = findViewById(R.id.btn_broadcast_receiver);
         btn_broadcast_receiver.setOnClickListener(this);
-
+        btn_providerund = findViewById(R.id.btn_providerund);
+        btn_providerund.setOnClickListener(this);
 
     }
 
@@ -42,6 +44,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Log.d(TAG, "btn_broadcast_receiver onClick 正在发送广播");
                 sendBroadcast(new Intent().setAction("com.libo.yibai.Broadcast.MyReceiver"));
                 break;
+            case R.id.btn_providerund:
+                Log.d(TAG, "btn_providerund onClick");
+                startActivity(new Intent(MainActivity.this, MyProviderunderActivity.class));
+                break;
+
         }
     }
 }

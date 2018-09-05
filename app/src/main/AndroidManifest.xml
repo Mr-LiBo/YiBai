@@ -9,29 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.libo.yibai.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.libo.yibai.services.TestActivity" />
+        <activity android:name=".services.TestActivity" />
 
         <service
-            android:name="com.libo.yibai.services.MyService"
+            android:name=".services.MyService"
             android:enabled="true"
             android:exported="true" />
 
-        <!-- 注册广播接收器-->
-        <receiver android:name="com.libo.yibai.Broadcast.MyReceiver">
+        <!-- 注册广播接收器 -->
+        <receiver android:name=".Broadcast.MyReceiver">
             <intent-filter>
-                <action android:name="com.libo.yibai.Broadcast.MyReceiver"></action>
+                <action android:name="com.libo.yibai.Broadcast.MyReceiver" />
             </intent-filter>
-
         </receiver>
 
+        <activity android:name=".ContentProviderunder.MyProviderunderActivity"></activity>
 
+
+        <provider android:name="com.libo.yibai.ContentProviderunder.StudentsProvider"
+            android:authorities="com.example.provider.College">
+        </provider>
     </application>
 
 </manifest>
