@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public class MyContentObserver extends ContentObserver {
     private Context mContext;
-    private Handler mHamdler;
+
 
     /**
      * Creates a content observer.
@@ -22,15 +22,15 @@ public class MyContentObserver extends ContentObserver {
     public MyContentObserver(Context context, Handler handler) {
         super(handler);
         this.mContext = context;
-        this.mHamdler= handler;
+
     }
 
     @Override
     public void onChange(boolean selfChange) {
         super.onChange(selfChange);
-        if (selfChange){
-            Log.e("MyContentObserver:","观察者监听到数据有变化了");
-        }
+
+            Log.e("MyContentObserver:","观察者监听到数据有变化了"+selfChange);
+
 
     }
 }

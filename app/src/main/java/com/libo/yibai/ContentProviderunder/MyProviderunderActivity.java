@@ -45,7 +45,7 @@ public class MyProviderunderActivity extends Activity {
 
     public void onClickRetrieveStudents(View view) {
         // Retrieve student records
-        String URL = "content://com.example.provider.College/students";
+        String URL = StudentsProvider.URL;
         Uri students = Uri.parse(URL);
         Cursor c = managedQuery(students, null, null, null, "name");
         if (c.moveToFirst()) {
@@ -59,14 +59,23 @@ public class MyProviderunderActivity extends Activity {
         }
     }
 
-
+    MyContentObserver myContentObserver=  new MyContentObserver(MyProviderunderActivity.this,null);
     private void registerContentObservers() {
         Log.e("MyProviderunderActivity","注册观察者");
 
         Uri airplaneUri = StudentsProvider.CONTENT_URI;
         // 注册内容观察者
-        getContentResolver().registerContentObserver(airplaneUri, false, new MyContentObserver(MyProviderunderActivity.this, null));
+        getContentResolver().registerContentObserver(airplaneUri, true, myContentObserver);
 
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //注销
+        getContentResolver().unregisterContentObserver(myContentObserver);
+    }
+
+
 }
